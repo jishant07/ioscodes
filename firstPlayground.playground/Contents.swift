@@ -216,6 +216,7 @@ class Cow : Animal
 }
 var obj3 = Cow(leg:4,fur:true)
 print("The number of legs of this cow are",obj3.noOfLegs)
+print("Cow has fur?",obj3.hasFur)
 class Snake : Animal
 {
     init(leg:Int,fur:Bool)
@@ -227,3 +228,4 @@ class Snake : Animal
 }
 var obj4 = Snake(leg:0,fur:false)
 print("The number of legs of this snake are",obj4.noOfLegs)
+print("Snake has fur?",obj4.hasFur)
