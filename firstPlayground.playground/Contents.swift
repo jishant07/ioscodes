@@ -139,3 +139,91 @@ func calc (newNum1:Int,newNum2:Int,oper:Character) -> Int
     return(answer)
 }
 print("The result is : " , calc(newNum1: 10, newNum2: 20, oper: "*"))
+
+//Bitwise operations
+
+a = 12 //Declared above
+b = 15 //Declared above
+
+print("OR : ",a|b) //OR
+print("BITWISE AND",a&b) //AND
+print("BITWISE XOR",a^b) //XOR
+print("RIGHT SHIFT",a>>b) //RIGHT SHIFT
+print("LEFT SHIFT",a<<b) //LEFT SHIFT
+
+//Decimal to Binary Conversions
+print("The Binary of \(a) is :",String(a,radix:2))
+
+//Decimal to Octal Conversion
+print("The Octal of \(a) is :",String(a,radix:8))
+
+//Decimal to Hexadeciaml
+print("The Hexadecimal of \(a) is :",String(a,radix:16))
+
+//OOPS
+class Abc
+{
+    var num = 10
+    func printA(num : Int)
+    {
+        print("\(num) is the value")
+    }
+}
+
+var obj = Abc()
+obj.printA(num : 100)
+
+class Xyz : Abc
+{
+    var b = 10
+    override func printA(num: Int) {
+        super.printA(num: 10)
+        print("Call from child ", num )
+    }
+}
+
+var obj1 = Xyz()
+obj1.printA(num : 1000)
+
+//Inheritance concepts
+
+class Animal
+{
+    var noOfLegs = 0
+    var hasFur = false
+}
+
+class Dog : Animal
+{
+    init(leg:Int,fur:Bool) {
+        super.init()
+        noOfLegs = leg
+        hasFur = fur
+    }
+    
+}
+var obj2 =  Dog(leg:4,fur:true)
+print("The number of legs of this dog are",obj2.noOfLegs)
+print("Dog has fur?",obj2.hasFur)
+class Cow : Animal
+{
+    init(leg:Int,fur:Bool)
+    {
+        super.init()
+        noOfLegs = leg
+        hasFur = fur
+    }
+}
+var obj3 = Cow(leg:4,fur:true)
+print("The number of legs of this cow are",obj3.noOfLegs)
+class Snake : Animal
+{
+    init(leg:Int,fur:Bool)
+    {
+        super.init()
+        noOfLegs = leg
+        hasFur = fur
+    }
+}
+var obj4 = Snake(leg:0,fur:false)
+print("The number of legs of this snake are",obj4.noOfLegs)
