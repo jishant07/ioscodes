@@ -20,4 +20,4 @@ func check_emotion (howareyoufeeling emotion : String)
         }
     }
 }
-check_emotion(howareyoufeeling: "Angry")
+check_emotion(howareyoufeeling: "Happy")
