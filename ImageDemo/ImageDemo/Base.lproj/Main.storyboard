@@ -18,27 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img1" translatesAutoresizingMaskIntoConstraints="NO" id="VZl-i8-Rsu">
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img1" translatesAutoresizingMaskIntoConstraints="NO" id="VZl-i8-Rsu">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9z-pz-bHf">
-                                <rect key="frame" x="72" y="426" width="271" height="61"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Change the Image">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <gestureRecognizers/>
                                 <connections>
-                                    <action selector="changeImage:" destination="BYZ-38-t0r" eventType="touchDown" id="OtJ-n9-CM8"/>
+                                    <outletCollection property="gestureRecognizers" destination="dlZ-YK-p1r" appends="YES" id="XQQ-qB-DL5"/>
                                 </connections>
-                            </button>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="o9z-pz-bHf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="382" id="CRb-EP-URU"/>
-                            <constraint firstItem="o9z-pz-bHf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="72" id="DKQ-80-GcA"/>
                             <constraint firstItem="VZl-i8-Rsu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="HZl-ZJ-JqV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="o9z-pz-bHf" secondAttribute="bottom" constant="375" id="LIm-BA-pe3"/>
-                            <constraint firstItem="VZl-i8-Rsu" firstAttribute="centerX" secondItem="o9z-pz-bHf" secondAttribute="centerX" id="awE-Eu-BHv"/>
                             <constraint firstItem="VZl-i8-Rsu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="drt-QS-X3n"/>
                             <constraint firstAttribute="bottom" secondItem="VZl-i8-Rsu" secondAttribute="bottom" id="jQH-X6-eMZ"/>
                             <constraint firstAttribute="trailing" secondItem="VZl-i8-Rsu" secondAttribute="trailing" id="td0-d8-8An"/>
@@ -50,6 +40,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dlZ-YK-p1r">
+                    <connections>
+                        <action selector="Tap:" destination="BYZ-38-t0r" id="ANh-gD-cIT"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="133.92857142857142"/>
         </scene>

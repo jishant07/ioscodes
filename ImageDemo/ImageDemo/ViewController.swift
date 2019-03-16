@@ -13,7 +13,7 @@ class ViewController: UIViewController
     var i = 1;
     var name = " "
     @IBOutlet weak var myImage: UIImageView!
-    @IBAction func changeImage(_ sender: UIButton)
+    @IBAction func Tap(_ sender: UITapGestureRecognizer)
     {
         i = i + 1;
         if(i%6 == 0)
