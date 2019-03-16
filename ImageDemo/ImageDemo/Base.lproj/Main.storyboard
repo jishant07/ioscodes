@@ -23,6 +23,9 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="dlZ-YK-p1r" appends="YES" id="XQQ-qB-DL5"/>
+                                    <outletCollection property="gestureRecognizers" destination="4z9-A9-c0W" appends="YES" id="ywh-Go-Ox0"/>
+                                    <outletCollection property="gestureRecognizers" destination="JbU-EM-I8c" appends="YES" id="HD6-fN-z2h"/>
+                                    <outletCollection property="gestureRecognizers" destination="Gqk-fs-vxZ" appends="YES" id="OcE-3s-tq1"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -45,6 +48,21 @@
                         <action selector="Tap:" destination="BYZ-38-t0r" id="ANh-gD-cIT"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="4z9-A9-c0W">
+                    <connections>
+                        <action selector="Swipe:" destination="BYZ-38-t0r" id="9ah-Ov-mhO"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="JbU-EM-I8c">
+                    <connections>
+                        <action selector="swipeLeft:" destination="BYZ-38-t0r" id="Tfi-wz-KxS"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <pinchGestureRecognizer id="Gqk-fs-vxZ">
+                    <connections>
+                        <action selector="Pinch:" destination="BYZ-38-t0r" id="rCy-i4-2iq"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="133.92857142857142"/>
         </scene>
