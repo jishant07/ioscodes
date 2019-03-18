@@ -17,7 +17,7 @@ class ViewController: UIViewController
         else
         {
             isTimerRunning = true
-            timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { (timer) in
+            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
                 self.seconds += 1;
                 if(self.seconds == 60)
                 {
@@ -39,8 +39,6 @@ class ViewController: UIViewController
     {
         if isTimerRunning
         {
-            let timerValue:String = String(String(self.hours) + " : " + String(self.minutes) + " : " + String(self.seconds));
-            self.myLabel.text = timerValue
             timer.invalidate()
             isTimerRunning = false
         }
@@ -52,9 +50,17 @@ class ViewController: UIViewController
             seconds = 0;
             hours = 0;
             minutes = 0;
-            let timerValue:String = String(String(self.hours) + " : " + String(self.minutes) + " : " + String(self.seconds));
-            self.myLabel.text = timerValue
             isTimerRunning = false
+            let timerValue:String = String(String(self.hours) + " : " + String(self.minutes) + " : " + String(self.seconds));
+            self.myLabel.text = timerValue;
+        }
+    }
+    func pauseAction()
+    {
+        if isTimerRunning
+        {
+            isTimerRunning = false
+            timer.invalidate()
         }
     }
     @IBAction func startButton(_ sender: UIButton)
@@ -71,12 +77,13 @@ class ViewController: UIViewController
     }
     @IBAction func pauseButton(_ sender: UIButton)
     {
-        
+        pauseAction()
     }
     override func viewDidLoad()
     {
         let timerValue:String = String(String(hours) + " : " + String(minutes) + " : " + String(seconds));
         myLabel.text = timerValue;
         super.viewDidLoad()
+        
     }
 }
