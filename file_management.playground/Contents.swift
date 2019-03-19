@@ -78,12 +78,12 @@ catch let error
 
 //Truncate the Contents
 
-let fileHandler = FileHandle(forWritingAtPath: filePath) // Handles the contents
-fileHandler?.truncateFile(atOffset: 0)
+/*let fileHandler = FileHandle(forWritingAtPath: filePath) // Handles the contents
+fileHandler?.truncateFile(atOffset: 10)
 
 //File delete
 
-/*do
+do
 {
     try fileManager.removeItem(atPath: filePath)
 }
@@ -91,3 +91,12 @@ catch let error
 {
     print("\(error.localizedDescription)")
 }*/
+
+//File Update
+let fileHandler = FileHandle.init(forUpdatingAtPath: filePath)
+var updateText = "\n\n Added file \n\n"
+//fileHandler!.seekToEndOfFile()
+fileHandler?.seek(toFileOffset: 20)
+fileHandler!.write(updateText.data(using: .utf8)!)
+let content = try String(contentsOfFile: filePath,encoding:.utf8)
+print(content)

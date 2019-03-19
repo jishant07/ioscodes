@@ -17,7 +17,7 @@ class ViewController: UIViewController
         else
         {
             isTimerRunning = true
-            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+            timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { (timer) in
                 self.seconds += 1;
                 if(self.seconds == 60)
                 {
