@@ -26,9 +26,13 @@ class ViewController: UIViewController
     {
         player.volume = sender.value
     }
+    @IBAction func pauseButton(_ sender: UIButton)
+    {
+        player.pause()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let path = Bundle.main.path(forResource:"Sustainability" , ofType: "mp3")
+        let path = Bundle.main.path(forResource:"lighthouse" , ofType: "mp3")
         let URLPath = URL(fileURLWithPath: path!)
         do
         {
