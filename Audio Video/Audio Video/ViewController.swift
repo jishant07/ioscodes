@@ -30,6 +30,15 @@ class ViewController: UIViewController
     {
         player.pause()
     }
+    @IBAction func videoPlay(_ sender: Any)
+    {
+        let path = Bundle.main.path(forResource: "Apple", ofType: "mp4")
+        let playerVC = AVPlayerViewController()
+        playerVC.player = AVPlayer(url: URL(fileURLWithPath: path!))
+        self.addChild(playerVC)
+        self.view.addSubview(playerVC.view)
+        playerVC.view.frame = CGRect(x:75, y:215 ,width:286 , height:226)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         let path = Bundle.main.path(forResource:"lighthouse" , ofType: "mp3")
@@ -52,4 +61,5 @@ class ViewController: UIViewController
     }
 
 }
+
 
