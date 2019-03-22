@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController
+class ViewController: UIViewController,WKNavigationDelegate
 {
     @IBOutlet weak var urlText: UITextField!
     @IBOutlet weak var webPage: WKWebView!
@@ -49,6 +49,15 @@ class ViewController: UIViewController
         super.viewDidLoad()
         let request = URLRequest(url : URL(string:"https://www.google.com")!)
         webPage.load(request)
+        webPage.navigationDelegate = self;
+    }
+    func webView(_ webView:WKWebView, didStartProvisionalNavigation: WKNavigation!)
+    {
+        activityCheck.startAnimating()
+    }
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!)
+    {
+        activityCheck.stopAnimating()
     }
 }
 
