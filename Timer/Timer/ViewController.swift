@@ -8,8 +8,13 @@ class ViewController: UIViewController
     @IBOutlet weak var myLabel: UILabel!
     var timer = Timer()
     var isTimerRunning = false
+    var stopper = false
     func startAction()
     {
+        if stopper == true
+        {
+            resetAction()
+        }
         if isTimerRunning
         {
             return
@@ -30,7 +35,7 @@ class ViewController: UIViewController
                     self.minutes = 0;
                     self.hours += 1;
                 }
-                let timerValue:String = String(String(self.hours) + " : " + String(self.minutes) + " : " + String(self.seconds));
+                let timerValue:String = String(String(format:"%02d", self.hours) + " : " + String(format:"%02d",self.minutes) + " : " + String(format:"%02d",self.seconds));
                 self.myLabel.text = timerValue;
             })
         }
@@ -41,6 +46,7 @@ class ViewController: UIViewController
         {
             timer.invalidate()
             isTimerRunning = false
+            stopper = true
         }
     }
     func resetAction()
@@ -51,8 +57,9 @@ class ViewController: UIViewController
             hours = 0;
             minutes = 0;
             isTimerRunning = false
-            let timerValue:String = String(String(self.hours) + " : " + String(self.minutes) + " : " + String(self.seconds));
+            let timerValue:String = String(String(format:"%02d", self.hours) + " : " + String(format:"%02d",self.minutes) + " : " + String(format:"%02d",self.seconds));
             self.myLabel.text = timerValue;
+            stopper = false
         }
     }
     func pauseAction()
@@ -81,7 +88,7 @@ class ViewController: UIViewController
     }
     override func viewDidLoad()
     {
-        let timerValue:String = String(String(hours) + " : " + String(minutes) + " : " + String(seconds));
+        let timerValue:String = String(String(format:"%02d", self.hours) + " : " + String(format:"%02d",self.minutes) + " : " + String(format:"%02d",self.seconds));
         myLabel.text = timerValue;
         super.viewDidLoad()
         

@@ -1,10 +1,3 @@
-//
-//  ResultViewController.swift
-//  Login Module
-//
-//  Created by admin on 18/03/19.
-//  Copyright © 2019 ACE. All rights reserved.
-//
 
 import UIKit
 
