@@ -94,9 +94,9 @@ catch let error
 
 //File Update
 let fileHandler = FileHandle.init(forUpdatingAtPath: filePath)
-var updateText = "\n\n Added file \n\n"
+var updateText = "\n Added file \n\n"
 //fileHandler!.seekToEndOfFile()
-fileHandler?.seek(toFileOffset: 20)
+fileHandler?.seek(toFileOffset: 30)
 fileHandler!.write(updateText.data(using: .utf8)!)
 let content = try String(contentsOfFile: filePath,encoding:.utf8)
 print(content)
