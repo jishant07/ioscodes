@@ -10,6 +10,8 @@ class SecondViewController: UIViewController
     {
         tableData.append(titleData.text!)
         subtitleData.append(newSubtitleData.text!)
+        
+        
     }
     override func viewDidLoad()
     {
