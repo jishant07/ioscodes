@@ -18,9 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cyE-S3-0Gr">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cyE-S3-0Gr">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableCell" rowHeight="60" id="Ey4-XG-vAf">
@@ -37,20 +36,24 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="jkB-G7-Hhb"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7aI-91-8RL">
-                                <rect key="frame" x="184" y="783" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="RsR-Vv-eEe" kind="show" id="AZT-ld-6VL"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cyE-S3-0Gr" secondAttribute="trailing" id="0K3-nA-2CK"/>
+                            <constraint firstItem="cyE-S3-0Gr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3f0-sG-WCQ"/>
+                            <constraint firstItem="cyE-S3-0Gr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Hnt-oV-kDL"/>
+                            <constraint firstItem="cyE-S3-0Gr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-44" id="vGT-gN-B3m"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="WIS-Cs-PfO"/>
+                    <navigationItem key="navigationItem" id="WIS-Cs-PfO">
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="J2X-XL-cBU">
+                            <connections>
+                                <segue destination="RsR-Vv-eEe" kind="show" id="o7c-e6-N5n"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mtTable" destination="cyE-S3-0Gr" id="h1j-J5-1pt"/>
@@ -68,23 +71,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title Data" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hyd-01-Fv6">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title Data" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hyd-01-Fv6">
                                 <rect key="frame" x="20" y="209" width="374" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subtitle Data" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3OM-Bt-9cy">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subtitle Data" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3OM-Bt-9cy">
                                 <rect key="frame" x="20" y="291" width="374" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oRH-2b-Y6m">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oRH-2b-Y6m">
                                 <rect key="frame" x="169" y="432" width="76" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="Add Data">
@@ -101,6 +101,17 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="3OM-Bt-9cy" firstAttribute="top" secondItem="Hyd-01-Fv6" secondAttribute="bottom" constant="52" id="2U1-6b-3VA"/>
+                            <constraint firstItem="Hyd-01-Fv6" firstAttribute="trailing" secondItem="3OM-Bt-9cy" secondAttribute="trailing" id="YnV-8X-PL2"/>
+                            <constraint firstItem="syn-GP-MaT" firstAttribute="bottom" secondItem="oRH-2b-Y6m" secondAttribute="bottom" constant="348" id="anj-Oe-WOR"/>
+                            <constraint firstItem="3OM-Bt-9cy" firstAttribute="centerX" secondItem="oRH-2b-Y6m" secondAttribute="centerX" id="bfY-AQ-pYF"/>
+                            <constraint firstItem="Hyd-01-Fv6" firstAttribute="trailing" secondItem="MxT-KF-c39" secondAttribute="trailingMargin" id="h8A-MF-rnv"/>
+                            <constraint firstItem="oRH-2b-Y6m" firstAttribute="centerY" secondItem="MxT-KF-c39" secondAttribute="centerY" id="mzd-J7-uHe"/>
+                            <constraint firstItem="Hyd-01-Fv6" firstAttribute="leading" secondItem="3OM-Bt-9cy" secondAttribute="leading" id="oNe-dR-bz1"/>
+                            <constraint firstItem="Hyd-01-Fv6" firstAttribute="leading" secondItem="MxT-KF-c39" secondAttribute="leadingMargin" id="sXf-6q-3FE"/>
+                            <constraint firstItem="Hyd-01-Fv6" firstAttribute="top" secondItem="syn-GP-MaT" secondAttribute="top" constant="121" id="y4f-Jz-qSK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="syn-GP-MaT"/>
                     </view>
                     <connections>

@@ -21,11 +21,20 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "tableCell")
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: "tableCell")
         cell.textLabel?.text = tableData[indexPath.row]
         cell.detailTextLabel?.text = subtitleData[indexPath.row]
         //cell.imageView?.image = UIImage(named: imageData[indexPath.row])
         return cell
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if editingStyle == .delete
+        {
+            tableData.remove(at: indexPath.row)
+            subtitleData.remove(at: indexPath.row)
+        }
+        mtTable.reloadData()
     }
     override func viewDidAppear(_ animated: Bool)
     {
