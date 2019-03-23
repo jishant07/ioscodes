@@ -34,8 +34,9 @@ class ViewController: UIViewController {
                 let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
                 let savePath = path[0] + "/newImage.jpg"
                 FileManager.default.createFile(atPath: savePath, contents: urlContent, attributes: nil)
-                self.myImage.image = UIImage(named:savePath)
-                print(savePath)
+                DispatchQueue.main.async {
+                    self.myImage.image = UIImage(named:savePath)
+                }
             }
         }
         datatask.resume()
