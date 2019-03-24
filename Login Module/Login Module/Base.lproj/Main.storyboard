@@ -132,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3R0-Ms-auA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1802.8985507246377" y="133.92857142857142"/>
+            <point key="canvasLocation" x="1813" y="134"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="fJa-3E-Npy">
@@ -154,7 +154,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="username"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KWw-xU-wME">
                                 <rect key="frame" x="20" y="271" width="374" height="30"/>
@@ -168,7 +168,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdn-uR-wcd">
                                 <rect key="frame" x="156" y="433" width="106" height="30"/>
@@ -185,12 +185,15 @@
                         <viewLayoutGuide key="safeArea" id="iKV-GL-cQq"/>
                     </view>
                     <connections>
+                        <outlet property="emailText" destination="KWw-xU-wME" id="v5B-qc-zso"/>
+                        <outlet property="passwordText" destination="I70-ke-AUq" id="jDO-yI-Hwg"/>
+                        <outlet property="userName" destination="5XO-sX-4XG" id="qma-Ou-ImC"/>
                         <segue destination="QB9-nr-cA9" kind="show" identifier="finalSegue" id="2M1-bt-FZ9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qfn-1Z-AqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015.9420289855074" y="834.375"/>
+            <point key="canvasLocation" x="1016" y="814"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="soZ-Gs-iMu">
@@ -212,6 +215,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2M1-bt-FZ9"/>
+        <segue reference="WBj-rK-fHA"/>
     </inferredMetricsTieBreakers>
 </document>
