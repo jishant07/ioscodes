@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_1" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,17 +15,20 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DesignLayoutTemplate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iPhone_Wallpaper_H" translatesAutoresizingMaskIntoConstraints="NO" id="HUC-vR-24L">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                                <variation key="heightClass=compact-widthClass=compact" image="iPhone_Wallpaper_V"/>
+                                <variation key="heightClass=compact-widthClass=regular" image="iPhone_Wallpaper_V"/>
+                                <variation key="heightClass=regular-widthClass=regular" image="iPhone_Wallpaper_V"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUe-fB-h6G" userLabel="Middle View">
-                                <rect key="frame" x="0.0" y="285" width="375" height="97"/>
+                                <rect key="frame" x="0.0" y="158.5" width="896" height="97"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obP-kQ-yb0">
-                                        <rect key="frame" x="139" y="0.0" width="97" height="97"/>
+                                        <rect key="frame" x="399.5" y="0.0" width="97" height="97"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="97" id="WVX-fC-htb"/>
                                             <constraint firstAttribute="width" constant="97" id="iNw-Gl-I61"/>
@@ -44,10 +47,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sCj-Ac-59t" userLabel="Top View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="285"/>
+                                <rect key="frame" x="0.0" y="0.0" width="896" height="158.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Humming_Bird" translatesAutoresizingMaskIntoConstraints="NO" id="HCL-3o-Pry">
-                                        <rect key="frame" x="67.5" y="78.5" width="240" height="128"/>
+                                        <rect key="frame" x="328" y="15.5" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="2ux-t5-lew"/>
                                             <constraint firstAttribute="width" constant="240" id="qne-OE-BbK"/>
@@ -60,10 +63,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTp-jK-NEk" userLabel="Buttom View">
-                                <rect key="frame" x="0.0" y="382" width="375" height="285"/>
+                                <rect key="frame" x="0.0" y="255.5" width="896" height="158.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Kingfisher_Bird" translatesAutoresizingMaskIntoConstraints="NO" id="7hK-nd-8LF">
-                                        <rect key="frame" x="67.5" y="157" width="240" height="128"/>
+                                        <rect key="frame" x="328" y="30.5" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="60z-On-hMT"/>
                                             <constraint firstAttribute="height" constant="128" id="a89-Qv-S49"/>
@@ -111,5 +114,6 @@
         <image name="Kingfisher_Bird" width="500" height="550"/>
         <image name="Play_Button" width="1024" height="1024"/>
         <image name="iPhone_Wallpaper_H" width="810" height="1440"/>
+        <image name="iPhone_Wallpaper_V" width="1024" height="568"/>
     </resources>
 </document>
