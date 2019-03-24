@@ -1,15 +1,7 @@
-//
-//  ViewController.swift
-//  JSON Demo
-//
-//  Created by admin on 24/03/19.
-//  Copyright © 2019 ACE. All rights reserved.
-//
 
 import UIKit
-
-class ViewController: UIViewController {
-
+class ViewController: UIViewController
+{
     @IBAction func loadJSON(_ sender: UIButton)
     {
         let url = URL(string: "https://cognitioworld.com/dev/demo.json")
@@ -18,7 +10,7 @@ class ViewController: UIViewController {
         { (data, response, err) in
             if let jsonData = data
             {
-                do
+               do
                 {
                     let jsonContent = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as! [Any]
                     let selectedArray = jsonContent[5] as! [String:Any]
