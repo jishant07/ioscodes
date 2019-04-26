@@ -18,6 +18,8 @@ var acc = ""
 var cat = ""
 var amt = 0
 var con = ""
+var inc_sum = 0
+var exp_sum = 0
 
 class AddViewController: UIViewController
 {
@@ -30,6 +32,7 @@ class AddViewController: UIViewController
     {
         categorysubview.isHidden = true
         accountsubview.isHidden = true
+        categoryincomesubview.isHidden = true
     }
     
     @IBOutlet weak var categoryincomesubview: UIView!
@@ -86,6 +89,18 @@ class AddViewController: UIViewController
     {
         acc = "Cash"
         accountButtonTitle.setTitle("Cash",for: .normal)
+    }
+    
+    @IBAction func allowanceClicked(_ sender: Any) {
+        cat = "Allowance";categoryButtonTitle.setTitle("Allowance",for: .normal)
+    }
+    
+    @IBAction func salaryClicked(_ sender: Any) {
+        cat = "Salary";categoryButtonTitle.setTitle("Salary",for: .normal)
+    }
+    
+    @IBAction func bonusClicked(_ sender: Any) {
+        cat = "Bonus";categoryButtonTitle.setTitle("Bonus",for: .normal)
     }
     @IBAction func accountClicked(_ sender: Any)
     {
@@ -157,14 +172,17 @@ class AddViewController: UIViewController
     
     @IBAction func SAVEClicked(_ sender: Any)
     {
-        if exp == 100
+        
+        if(exp == 0)
         {
-            let alert = UIAlertController(title: "Please select the expense type", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            self.present(alert, animated: true)
+            exp_sum += Int(amount.text!)!
         }
-        else
+        else if(exp == 1)
         {
+            inc_sum += Int(amount.text!)!
+        }
+        print("Income Sum :", inc_sum)
+        print("Expense Sum :", exp_sum)
             if ((acc != "") && (cat != "") && ((amount.text!) != "") && ((contents.text!) != ""))
             {
                 let context = getContext()
@@ -193,4 +211,3 @@ class AddViewController: UIViewController
             }
         }
     }
-}

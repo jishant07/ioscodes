@@ -51,7 +51,32 @@ class FFirstViewController: UIViewController,UITableViewDelegate,UITableViewData
             return subtitleData.count
         }
     }
+    func deleteData()
+    {
+        let managedContext = getContext()
+        let fetchReq = NSFetchRequest<NSFetchRequestResult>(entityName: "Added_Data")
+        do
+        {
+            let record = try getContext().fetch(fetchReq)
+            try managedContext.delete(record[0] as! NSManagedObject)
+            do
+            {
+                    try managedContext.save()
+            }
+            catch
+            {
+                print(error)
+            }
+        }
+        catch
+        {
+            print(error)
+        }
+    }
+    @IBOutlet weak var incsum: UILabel!
     
+    @IBOutlet weak var totalsum: UILabel!
+    @IBOutlet weak var expsum: UILabel!
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "tableCell")
@@ -78,10 +103,11 @@ class FFirstViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     override func viewDidLoad()
     {
+        deleteData()
         retrieveData()
+        incsum.text = "\(inc_sum)"
+        expsum.text = "\(exp_sum)"
+        totalsum.text = "\(inc_sum - exp_sum)"
         super.viewDidLoad()
     }
 }
-
-
-

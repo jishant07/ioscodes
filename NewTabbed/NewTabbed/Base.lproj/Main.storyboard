@@ -69,6 +69,27 @@
                                     <segue destination="wQU-Jj-RMD" kind="show" id="cIp-dQ-zUs"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYa-oP-ic5">
+                                <rect key="frame" x="20" y="96" width="95" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D68-LO-RJs">
+                                <rect key="frame" x="175" y="96" width="95" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAa-gH-f6c">
+                                <rect key="frame" x="298" y="96" width="95" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -90,12 +111,15 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="expsum" destination="D68-LO-RJs" id="sGu-gC-yUT"/>
+                        <outlet property="incsum" destination="KYa-oP-ic5" id="mg0-yf-4m2"/>
                         <outlet property="mytab" destination="aav-du-8TY" id="w9K-oj-OBT"/>
+                        <outlet property="totalsum" destination="mAa-gH-f6c" id="vj9-dF-Tyl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="588" y="-320"/>
+            <point key="canvasLocation" x="586.95652173913049" y="-320.08928571428572"/>
         </scene>
         <!--Add View Controller-->
         <scene sceneID="FeG-XA-h3I">
@@ -492,7 +516,7 @@
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                         <state key="normal" title="Allowance"/>
                                         <connections>
-                                            <action selector="cashClicked:" destination="wQU-Jj-RMD" eventType="touchUpInside" id="f3G-gb-5Uo"/>
+                                            <action selector="allowanceClicked:" destination="wQU-Jj-RMD" eventType="touchUpInside" id="htM-qH-dNh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eg-Dl-BeK">
@@ -500,7 +524,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Salary"/>
                                         <connections>
-                                            <action selector="accountClicked:" destination="wQU-Jj-RMD" eventType="touchUpInside" id="Ozi-FH-IcI"/>
+                                            <action selector="salaryClicked:" destination="wQU-Jj-RMD" eventType="touchUpInside" id="vaE-l5-NH8"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPI-kZ-cAP">
@@ -508,7 +532,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Bonus"/>
                                         <connections>
-                                            <action selector="cardClicked:" destination="wQU-Jj-RMD" eventType="touchUpInside" id="WUL-DT-a6j"/>
+                                            <action selector="bonusClicked:" destination="wQU-Jj-RMD" eventType="touchUpInside" id="U4c-GD-dk1"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyK-wA-N7N">
@@ -625,7 +649,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hvl-fR-Kh6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1282.608695652174" y="-320.08928571428572"/>
+            <point key="canvasLocation" x="1275" y="-320"/>
         </scene>
     </scenes>
     <resources>
