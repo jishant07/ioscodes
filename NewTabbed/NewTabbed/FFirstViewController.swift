@@ -7,19 +7,39 @@
 //
 
 import UIKit
+import CoreData
 
-class FFirstViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+var tableData = [String]()
+var subtitleData = [String]()
+func getContext() -> NSManagedObjectContext
+{
+    let delegate = UIApplication.shared.delegate as! AppDelegate
+    return delegate.persistentContainer.viewContext
+}
+func retrieveData()
+{
+    let fetchReq = NSFetchRequest<NSFetchRequestResult>(entityName: "Added_Data")
+    do
+    {
+        let record = try getContext().fetch(fetchReq)
+        tableData.removeAll()
+        subtitleData.removeAll()
+        for i in record as! [NSManagedObject]
+        {
+            let newCatData = (i.value(forKey:"category"))
+            let amtData = (i.value(forKey: "amount"))
+            tableData.append(newCatData as! String)
+            subtitleData.append("\(amtData!)")
+        }
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+    catch let err
+    {
+        print(err.localizedDescription)
     }
-    
-
-    
-    /*@IBOutlet weak var mytab: UITableView!
+}
+class FFirstViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
+{
+    @IBOutlet weak var mytab: UITableView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         if(tableData.count < subtitleData.count)
@@ -31,12 +51,12 @@ class FFirstViewController: UIViewController,UITableViewDelegate,UITableViewData
             return subtitleData.count
         }
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "tableCell")
-        cell.textLabel?.text = (tableData[indexPath.row] as! String)
-        cell.detailTextLabel?.text = (subtitleData[indexPath.row] as! String)
-        //cell.imageView?.image = UIImage(named: imageData[indexPath.row])
+        cell.textLabel?.text = (((tableData[indexPath.row])) )
+        cell.detailTextLabel?.text = (subtitleData[indexPath.row] )
         return cell
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
@@ -48,23 +68,18 @@ class FFirstViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
         mytab.reloadData()
     }
-    func viewData()
-    {
-        print("Checking Data...")
-        check.append(UserDefaults.standard.object(forKey: "account")!)
-        check.append(UserDefaults.standard.object(forKey: "category")!)
-        check.append(UserDefaults.standard.object(forKey: "amount")!)
-        check.append(UserDefaults.standard.object(forKey: "content")!)
-        print(check)
-    }
     override func viewDidAppear(_ animated: Bool)
     {
         mytab.reloadData()
-    }*/
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
+    
     override func viewDidLoad()
     {
+        retrieveData()
         super.viewDidLoad()
-        //viewData()
     }
 }
 

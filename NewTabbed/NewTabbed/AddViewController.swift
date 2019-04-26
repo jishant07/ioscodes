@@ -10,22 +10,14 @@ import UIKit
 import CoreData
 
 var incomeData = [Any]()
-var tableData = [Any]()
-var subtitleData = [Any]()
+
 var contentsData = [Any]()
 var incData = [Any]()
-var exp = 0
+var exp = 100
 var acc = ""
 var cat = ""
 var amt = 0
 var con = ""
-var entry = [Any]()
-var expData = [Any]()
-var accData = [Any]()
-var catData = [Any]()
-var amtData = [Any]()
-var contentData = [Any]()
-var check = [Any]()
 
 class AddViewController: UIViewController
 {
@@ -52,22 +44,34 @@ class AddViewController: UIViewController
     }
     @IBAction func accountsClicked(_ sender: Any)
     {
-        categorysubview.isHidden = true
-        accountsubview.isHidden = false
-        categoryincomesubview.isHidden = true
+        /*UIView.transition(with: categorysubview, duration: 1000, options: [.curveEaseIn, .transitionCrossDissolve], animations:{
+            self.categorysubview.isHidden = true
+        }, completion: nil)*/
+        UIView.animate(withDuration: 2.0, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .showHideTransitionViews, animations: {
+        }, completion: nil)
+        self.categorysubview.isHidden = true
+        self.accountsubview.isHidden = false
+        self.categoryincomesubview.isHidden = true
     }
     @IBAction func categoryClicked(_ sender: Any)
     {
-        if(exp == 0){
-        categorysubview.isHidden = false
-        accountsubview.isHidden = true
-        categoryincomesubview.isHidden = true
+        if(exp == 0)
+        {
+            categorysubview.isHidden = false
+            accountsubview.isHidden = true
+            categoryincomesubview.isHidden = true
         }
-        if(exp == 1){
-        categorysubview.isHidden = true
-        accountsubview.isHidden = true
-        categoryincomesubview.isHidden = false
-            
+        if(exp == 1)
+        {
+            categorysubview.isHidden = true
+            accountsubview.isHidden = true
+            categoryincomesubview.isHidden = false
+        }
+        if(exp == 100)
+        {
+            let alert = UIAlertController(title: "Please select the expense type", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
         }
     }
     @IBOutlet weak var contents: UITextField!
@@ -145,49 +149,48 @@ class AddViewController: UIViewController
     {
         cat = "Others";categoryButtonTitle.setTitle("Others",for: .normal)
     }
-    func saveData()
+    func getContext() -> NSManagedObjectContext
     {
-        print("Current Entry",entry)
-        expData.append(0)
-        accData.append(0)
-        catData.append(0)
-        amtData.append(0)
-        contentData.append(0)
-        UserDefaults.standard.set(expData, forKey: "expense")
-        UserDefaults.standard.set(accData,forKey: "account")
-        UserDefaults.standard.set(catData, forKey: "category")
-        UserDefaults.standard.set(amtData, forKey: "amount")
-        UserDefaults.standard.set(contentData, forKey: "content")
-        expData = UserDefaults.standard.object(forKey: "expense") as! [Any]
-        accData = UserDefaults.standard.object(forKey: "account") as! [Any]
-        catData = UserDefaults.standard.object(forKey: "category") as! [Any]
-        amtData = UserDefaults.standard.object(forKey: "amount") as! [Any]
-        contentData = UserDefaults.standard.object(forKey: "content") as! [Any]
-        expData.append(entry[0])
-        accData.append(entry[1])
-        catData.append(entry[2])
-        amtData.append(entry[3])
-        contentData.append(entry[4])
-        UserDefaults.standard.set(expData, forKey: "expense")
-        UserDefaults.standard.set(accData,forKey: "account")
-        UserDefaults.standard.set(catData, forKey: "category")
-        UserDefaults.standard.set(amtData, forKey: "amount")
-        UserDefaults.standard.set(contentData, forKey: "content")
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        return delegate.persistentContainer.viewContext
     }
-    func viewData()
-    {
-        print("Checking Data...")
-        check.append(UserDefaults.standard.object(forKey: "account")!)
-        print(check[1])
-    }
+    
     @IBAction func SAVEClicked(_ sender: Any)
     {
-        entry=[exp,acc,cat,Int(amount.text!)!,contents.text!]
-        
-        tableData.insert(catData, at: 0)
-        subtitleData.insert(amtData, at: 0)
-        
-        saveData()
-        viewData()
+        if exp == 100
+        {
+            let alert = UIAlertController(title: "Please select the expense type", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+        }
+        else
+        {
+            if ((acc != "") && (cat != "") && ((amount.text!) != "") && ((contents.text!) != ""))
+            {
+                let context = getContext()
+                let newData = NSEntityDescription.insertNewObject(forEntityName: "Added_Data", into: context)
+                newData.setValue(exp, forKey: "inc_exp")
+                newData.setValue(acc, forKey: "account")
+                newData.setValue(cat, forKey: "category")
+                newData.setValue(Int(amount.text!)!, forKey:"amount")
+                newData.setValue(contents.text!, forKey: "contents")
+                do
+                {
+                    try context.save()
+                    print(NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true).last! )
+                }
+                catch let err
+                {
+                    print(err.localizedDescription)
+                }
+                
+            }
+            else
+            {
+                let alert = UIAlertController(title: "Fill all the details", message: nil, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+            }
+        }
     }
 }
